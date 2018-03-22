@@ -17,9 +17,9 @@ function end(){
     var diffTime = endTime - startTime ;	
     diffTime = diffTime / 1000;
     var seconds = Math.round(diffTime);
-    //alert(diffTime)
+    alert(diffTime)
     //document.getElementById("demo").innerHTML = diffTime;
-	document.getElementById("timer").innerHTML = parseInt(diffTime);
+	//document.getElementById("timer").innerHTML = parseInt(diffTime);
 }
 
 start();
