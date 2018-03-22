@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+#topicDetails {
+    float: left;
+    max-width: 200px;
+	max-height: 1000px;
+    margin: 0;
+    padding: 0em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 230px;
+	max-height: 1000px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    
+}
+</style>
+
+<script src="page2.js"> </script>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Topic Number = 303</h1>
+</header>
+
+<article id="topicDetails">
+
+	<fieldset>
+		<legend>
+		Description
+		</legend>
+		Identify positive accomplishments of the Hubble telescope since it was launched in 1991.
+	</fieldset>
+	
+	<fieldset id="timer">
+		<legend>
+		Time
+		</legend>
+	</fieldset>
+
+	
+	<fieldset>
+		<legend>
+		Narr
+		</legend>
+		Documents are relevant that show the Hubble telescope has produced new data, 
+		better quality data than previously available, data that has increased human knowledge of the universe, 
+		or data that has led to disproving previously existing theories or hypotheses. 
+		<!--
+		Documents limited to the shortcomings of the telescope would be irrelevant. 
+		Details of repairs or modifications to the telescope without reference to positive achievements would not be relevant.
+		-->
+	</fieldset>
+	
+	<button onclick="end()">End Timer</button>
+
+
+</article>
+	
+
+<article>
+	<ol>
+	<!-- We can give each item a different ID and call them from JS by id number -->
+	<li> This will be the results list that will be 30 items long, keeping in view user's interest we have shortened this list from 100 items to 30 items only.</li>
+    <li id="Item1"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li><a href="#">Headline with link goes here for Document 2</a> &emsp; <input type="submit" value="Relevant"> <br> Document 2 description goes here.</li>
+    <li><a href="#">Headline with link goes here for Document 3</a> &emsp; <input type="submit" value="Relevant"> <br> Document 3 description goes here.</li>
+    <li><a href="#">Headline with link goes here for Document 4</a> &emsp; <input type="submit" value="Relevant"> <br> Document 4 description goes here.</li>
+    <li><a href="#">Headline with link goes here for Document 5</a> &emsp; <input type="submit" value="Relevant"> <br> Document 5 description goes here.</li>
+	<!--
+	<br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	-->
+	</ol>
+
+  
+</article>
+
+</div>
+
+</body>
+</html>
