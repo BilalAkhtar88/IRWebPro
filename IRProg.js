@@ -28,5 +28,5 @@ function saySomething()
 	//var alertDisp = "Use separate file for scripting";
 	//var boolVar = true;
 	
-	alert (randNum);	//Alert function
-	document.write(parseInt(randNum*5, 10));	
+//	alert (randNum);	//Alert function
+//	document.write(parseInt(randNum*5, 10));	

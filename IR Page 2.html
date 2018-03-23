@@ -46,7 +46,9 @@ article {
 }
 </style>
 
-<script src="page2.js"> </script>
+<script type="text/javascript" src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="data.json"></script>
+<script type="text/javascript" src="page2.js"> </script>
 </head>
 <body>
 
@@ -56,23 +58,25 @@ article {
 		<legend>
 		Description
 		</legend>
-		Identify positive accomplishments of the Hubble telescope since it was launched in 1991.
+		<p id="Desc">
+		</p>
 	</fieldset>
+	
+	
 	
 	<fieldset>
 		<legend>
 		Narr
 		</legend>
-		Documents are relevant that show the Hubble telescope has produced new data, 
-		better quality data than previously available, data that has increased human knowledge of the universe, 
-		or data that has led to disproving previously existing theories or hypotheses. 
+		<p id="Narr">
+		</p>
 		<!--
 		Documents limited to the shortcomings of the telescope would be irrelevant. 
 		Details of repairs or modifications to the telescope without reference to positive achievements would not be relevant.
 		-->
 	</fieldset>
 	
-	<button onclick="end()">End Timer</button>
+	<button onclick="showTopic()">Next</button>
 
 
 </article>
