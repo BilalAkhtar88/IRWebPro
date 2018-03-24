@@ -23,10 +23,24 @@ header, footer {
 
 #topicDetails {
     float: left;
-    max-width: 200px;
+    max-width: 330px;
 	max-height: 1000px;
     margin: 0;
     padding: 0em;
+}
+
+div.descr {
+    background-color: lightblue;
+    width: 300px;
+    height: 150px;
+    overflow: auto;
+}
+
+div.narra {
+    background-color: lightblue;
+    width: 300px;
+    height: 350px;
+    overflow: auto;
 }
 
 nav ul {
@@ -39,7 +53,7 @@ nav ul a {
 }
 
 article {
-    margin-left: 230px;
+    margin-left: 315px;
 	max-height: 1000px;
     padding: 1em;
     
@@ -58,23 +72,22 @@ article {
 		<legend>
 		Description
 		</legend>
-		<p id="Desc">
-		</p>
+		<div class="descr">
+			<p id="Desc">
+			</p>
+		</div>
 	</fieldset>
-	
-	
 	
 	<fieldset>
 		<legend>
 		Narr
 		</legend>
+		<div class="narra">
 		<p id="Narr">
 		</p>
-		<!--
-		Documents limited to the shortcomings of the telescope would be irrelevant. 
-		Details of repairs or modifications to the telescope without reference to positive achievements would not be relevant.
-		-->
+		</div>
 	</fieldset>
+	</div>
 	
 	<button onclick="showTopic()">Next</button>
 
@@ -86,11 +99,36 @@ article {
 	<ol>
 	<!-- We can give each item a different ID and call them from JS by id number -->
 	<li> This will be the results list that will be 30 items long, keeping in view user's interest we have shortened this list from 100 items to 30 items only.</li>
-    <li id="Item1"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
-    <li><a href="#">Headline with link goes here for Document 2</a> &emsp; <input type="submit" value="Relevant"> <br> Document 2 description goes here.</li>
-    <li><a href="#">Headline with link goes here for Document 3</a> &emsp; <input type="submit" value="Relevant"> <br> Document 3 description goes here.</li>
-    <li><a href="#">Headline with link goes here for Document 4</a> &emsp; <input type="submit" value="Relevant"> <br> Document 4 description goes here.</li>
-    <li><a href="#">Headline with link goes here for Document 5</a> &emsp; <input type="submit" value="Relevant"> <br> Document 5 description goes here.</li>
+    <li id="Item1"><p id="desc1"></p><p id="summ1"></p><input type="submit" value="Relevant"> <br> </li> 
+    <li id="Item2"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item3"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item4"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item5"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item6"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item7"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item8"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item9"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item10"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item11"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item12"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item13"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item14"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item15"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item16"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item17"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item18"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item19"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item20"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item21"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item22"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item23"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item24"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item25"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item26"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item27"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item28"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item29"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
+    <li id="Item30"><a href="#">Headline with link goes here for Document 1</a> &emsp; <input type="submit" value="Relevant"> <br> Document 1 description goes here.</li>
 	<!--
 	<br>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -105,6 +143,8 @@ article {
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	-->
 	</ol>
+	
+	<p id="Thanks"> </p>
 
   
 </article>

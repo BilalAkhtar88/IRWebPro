@@ -1,46 +1,59 @@
-var loopNumber = 1;
-var startTime, endTime;
-var diffTime;
-var obj = "data.json";
-//var topicNum = [];
+var loopNumber = 0;
+var topicNum = ["310", "314", "336", "354", "362", "374", "375", "383", "397", "426"];
 var topDesc;
 var topNarr;
+var startTime, endTime, diffTime;
+var obj = "data.json";
+var seedNumber;
  
 function start(){
 	startTime = new Date();
-	//document.getElementById("timer").innerHTML = startTime.getTime();	
 }
 
 function end(){
 	endTime = new Date();
-    var diffTime = endTime - startTime ;	
+    diffTime = endTime - startTime ;	
     diffTime = diffTime / 1000;
     var seconds = Math.round(diffTime);
-	//alert(seconds);
+}
+
+function seedNumGen()
+{
+	var randNum = Math.random();
+	seedNumber = parseInt(randNum*5,10);
 }
 
 function showTopic()
 {
+	seedNumGen();
 	d3.json
 	(obj, function(data) 
 	{
 		{
 			if(loopNumber < 10)
 			{
+				
 				end();
 				start();
 				topDesc = data[loopNumber].topicDesc;
-				topNarr = data[loopNumber].topicNarr; 
+				topNarr = data[loopNumber].topicNarr;
+				var str = topicNum[0];
+				var result = str.link("http://localhost/IRWebPro/Information_Retrieval_Project.html");
+				document.getElementById("desc1").innerHTML = result;
+				document.getElementById("summ1").innerHTML = topDesc;
+				
 				document.getElementById("Desc").innerHTML = topDesc;
 				document.getElementById("Narr").innerHTML = topNarr;
 				loopNumber = loopNumber + 1;
 			}
 			else
 			{
-				//Check how to hyperlink from javascript
-				//href("file:///E:/University%20Data/Q3/Information%20Retrieval/Project/ProjectWebSite/IRWebPro/Thank.html")
+				document.getElementById("Thanks").innerHTML = "Thanks for helping us in this survey!";
 			}
 		}
 	}
 	);
 }
+
+var x = location.href;
+alert(x);
