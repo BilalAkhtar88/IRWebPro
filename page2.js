@@ -54,8 +54,8 @@ function vanish()
 	document.getElementById("introFirstPage").remove();
 	document.getElementById("topicDetails").style.display = "block";
 	showTopic();
-	
-}	 
+
+}
 
 function start(){
 	startTime = new Date();
@@ -63,7 +63,7 @@ function start(){
 
 function end(){
 	endTime = new Date();
-    diffTime = endTime - startTime ;	
+    diffTime = endTime - startTime ;
     diffTime = diffTime / 1000;
     var seconds = diffTime;
 }
@@ -87,7 +87,7 @@ function showMAP()
 	{
 		objec = "MAP" + mapNumber + "P.json";
 		document.getElementById("searchList").style.display = "block";
-		d3.json 
+		d3.json
 		(objec, function(data)
 		{
 			//alert(mapNumber);
@@ -103,8 +103,8 @@ function showMAP()
 				stInd = 80;
 			else if (topicNumber == "397")
 				stInd = 100;
-			
-			
+
+
 			var idTag = 1;
 			for (var i = stInd; i < (stInd + 20); i++)
 
@@ -113,22 +113,23 @@ function showMAP()
 				var nT = data[i].docText;
 				var idH = "link" + idTag;
 				var idP = "p" + idTag;
-				
+
 				document.getElementById(idH).innerHTML = hLi;
 				document.getElementById(idP).innerHTML = nT.substring(0,250);
-				
-				idTag += 1;				
-			}	
+
+				idTag += 1;
+			}
 		}
 		);
 		return false;
 	}
 	}
-	
+
+
 function dispDocLink(val)
 {
 	objec = "MAP" + mapNumber + "P.json";
-	d3.json 
+	d3.json
 	(objec, function(data)
 	{
 		if (topicNumber == "314")
@@ -143,31 +144,31 @@ function dispDocLink(val)
 				stInd = 80;
 			else if (topicNumber == "397")
 				stInd = 100;
-			
+
 		var idTag = parseInt(val);
 		var i = stInd + idTag -1;
 		var nT = data[i].docText;
 		var idP = "p" + idTag;
-		
+
 		if(detailText == 0)
 		{
 			document.getElementById(idP).innerHTML = nT;
-			detailText = 1;			
+			detailText = 1;
 		}
 		else
 		{
 			document.getElementById(idP).innerHTML = nT.substring(0,250);
-			detailText = 0;			
+			detailText = 0;
 		}
 	}
-)	
-	
+)
+
 }
 
 function checkRelevancy(val)
 {
 	objec = "MAP" + mapNumber + "P.json";
-	d3.json 
+	d3.json
 	(objec, function(data)
 	{
 		if (topicNumber == "314")
@@ -182,7 +183,7 @@ function checkRelevancy(val)
 				stInd = 80;
 			else if (topicNumber == "397")
 				stInd = 100;
-		
+
 		var idTag = parseInt(val);
 		var i = stInd + idTag -1;
 		var nT = data[i].rel;
@@ -194,13 +195,22 @@ function checkRelevancy(val)
 					alert(mapNumber + "   Time " + diffTime);
 				}
 	}
-)	
+)
+}
+
+function downloadJSONFile(name, json) {
+  let a = document.createElement('a');
+  let data = new Blob([json]);
+  a.download = `${name}.json`;
+  a.href = URL.createObjectURL(data);
+  a.click();
+  URL.revokeObjectURL(data);
 }
 
 function showTopic()
 {
 	d3.json
-	(obj, function(data) 
+	(obj, function(data)
 	{
 		{
 			if(loopNumber < 6)
@@ -215,7 +225,7 @@ function showTopic()
 				//end();
 				start();
 			}
-			
+
 			else if(loopNumber < 6)
 			{
 				if(relChecked == 0)
@@ -225,7 +235,7 @@ function showTopic()
 				outTime[loopNumber - 1] = diffTime;
 				start();
 			}
-			
+
 				topicNumber = topicNum[seedNumber];
 				mapNumber = mapNum[(parseInt(seedNumber / 2))];
 				outMapNum[loopNumber] = mapNumber;
@@ -239,7 +249,7 @@ function showTopic()
 				if (seedNumber < 5)
 					seedNumber += 1;
 				else
-					seedNumber = 0;			
+					seedNumber = 0;
 				loopNumber = loopNumber + 1;
 			}
 
@@ -248,9 +258,30 @@ function showTopic()
 				outTime[loopNumber - 1] = diffTime;
 				alert(outTime);
 				alert(outMapNum);
+				alert(outTopicNum);
+
+			var obj = {
+   			table: []};
+
+			obj.table.push({"outTIme": outTime, "outMapNum":outMapNum, "outTopicNum":outTopicNum});
+			//var json = JSON.stringify(obj);
+			console.log(json);
+		$.ajax({
+        type : "POST",
+        url : "json.php",
+        dataType : 'json',
+        data : {
+					json
+        }
+    });
+			downloadJSONFile('testout', json);
+
+			/*var fs = require('fs');
+			fs.writeFile('myjsonfile.json', json, 'utf8', callback);*/
+
 				document.getElementById("endThank").innerHTML = "Thanks for helping us in this survey!";
 			}
-			
+
 		}
 	}
 	);
@@ -271,20 +302,20 @@ function countDownSession() {
 			document.getElementById("searchList").style.display = "none";
 		showTopic();
     }
-    
+
     var min = Math.floor(sessionTime / 60);
     var secDisplay = sessionTime % 60;
-    
+
 	if(loopNumber < 7)
 	{
 	if(loopNumber == 7)
-	{	
+	{
 	}
 	else
 	{
 		document.getElementById("timer").innerHTML = "Your Left Time  is : " + min + " Minutes," + secDisplay + " Seconds";
 	}
-	}	
+	}
 }
 
 function endOuterTimer() {

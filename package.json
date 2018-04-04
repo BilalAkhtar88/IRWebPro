@@ -1,0 +1,22 @@
+{
+  "name": "irwebpro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "IRProg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BilalAkhtar88/IRWebPro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BilalAkhtar88/IRWebPro/issues"
+  },
+  "homepage": "https://github.com/BilalAkhtar88/IRWebPro#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

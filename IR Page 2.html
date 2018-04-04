@@ -4,39 +4,39 @@
 <head>
 
 	<style>
-	
+
 		a
 		{
 			font-size: 20px;
 		}
-		
+
 		.relBookMark
 		{
 			float: right;
 		}
-		div.descr 
+		div.descr
 		{
 		   height: 20px;
 		}
 
-		div.narra 
+		div.narra
 		{
-			height: 80px;    
+			height: 80px;
 		}
 
-		ul 
+		ul
 		{
 			list-style-type: none;
 			padding: 0;
 			text-decoration: none;
 		}
 
-		article 
+		article
 		{
 			margin-left: 5px;
-			padding: 1em;    
+			padding: 1em;
 		}
-		#timer 
+		#timer
 		{
 			float: right;
 			font-style: italic;
@@ -49,25 +49,26 @@
 	<script type="text/javascript" src="MAP75P.json"></script>
 	<script type="text/javascript" src="MAP95P.json"></script>
 	<script type="text/javascript" src="page2.js"> </script>
+	<script src = "search.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
 
-<body id="endThank">
-
+<body id="endThank" >
 <form method="post" name="Form" action="">
-	
+
 	<fieldset id="introFirstPage">
 
 		<legend>
 		Instructions
 		</legend>
 
-		<p> 
-			Instructions go here. 
-			
+		<p>
+			Instructions go here.
+
 			Something like, thanks for taking your time to fill out this survey report. You will be displayed 9 different windows while filling out the form.
 			You will be presented with subject description and its corresponding narrative field and a list of documents from which you are asked to select document that you deem relevant to the topic described in corresponding topic description and the criteria for discriminating between relevant and irrelevant is described in Narrative.
-			You will be automatically taken to the next topic after you click on relevant document. 
+			You will be automatically taken to the next topic after you click on relevant document.
 			<br>
 			<br>
 			This survey should take a maximum of 10-15 minutes.
@@ -76,8 +77,8 @@
 			We also require your age, your recent fully achieved study level and your native language for this study.
 			<br>
 			<br>
-			
-			Age: 
+
+			Age:
 			<input type="number" name="ageOfUser" min="18" max="100" id="userAge">
 			&emsp; Qualification:
 			<select name="userQual">
@@ -86,12 +87,12 @@
 				<option value="PhD">PhD</option>
 			</select>
 			&emsp; Native Language: <input type="text" name="Lang">
-			&emsp; <input type="submit" value="Submit" onclick="vanish()">		
+			&emsp; <input type="submit" value="Submit" onclick="vanish()">
 
 		</p>
 
 	</fieldset>
-	
+
 </form>
 
 <form method="post" name="Form2" action="">
@@ -110,7 +111,7 @@
 
 	<h1>
 		Narrative
-	</h1>	
+	</h1>
 	<div class="narra">
 		<p id="Narr">
 		</p>
@@ -119,122 +120,125 @@
 	<br><br><br>
 	<input id="myInput" type="text" name="searchText" size="50">
 	<button onclick="return showMAP()">Search</button><p id="timer"> </p>
-	
+
 
 </article>
 
-	
-	
+
+
 </form>
+
+
+
 
 <article id="searchList" style="display:none">
 	<ul>
 	<!-- We can give each item a different ID and call them from JS by id number -->
-	<li ><a id="link1" href="javascript:dispDocLink(1)"></a></input>&emsp; 
+	<li ><a id="link1" href="javascript:dispDocLink(1)"></a></input>&emsp;
 	<button class="relBookMark" value=1 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p1"> </p></li>
-	<li ><a id="link2" href="javascript:dispDocLink(2)"></a></input>&emsp;  
+	<li ><a id="link2" href="javascript:dispDocLink(2)"></a></input>&emsp;
 	<button class="relBookMark" value=2 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p2"> </p></li>
-	<li ><a id="link3" href="javascript:dispDocLink(3)"></a></input>&emsp;  
+	<li ><a id="link3" href="javascript:dispDocLink(3)"></a></input>&emsp;
 	<button class="relBookMark" value=3 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p3"> </p></li>
-	<li ><a id="link4" href="javascript:dispDocLink(4)"></a></input>&emsp;  
+	<li ><a id="link4" href="javascript:dispDocLink(4)"></a></input>&emsp;
 	<button class="relBookMark" value=4 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p4"> </p></li>
-	<li ><a id="link5" href="javascript:dispDocLink(5)"></a></input>&emsp;  
+	<li ><a id="link5" href="javascript:dispDocLink(5)"></a></input>&emsp;
 	<button class="relBookMark" value=5 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p5"> </p></li>
-	<li ><a id="link6" href="javascript:dispDocLink(6)"></a></input>&emsp;  
+	<li ><a id="link6" href="javascript:dispDocLink(6)"></a></input>&emsp;
 	<button class="relBookMark" value=6 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p6"> </p></li>
-	<li ><a id="link7" href="javascript:dispDocLink(7)"></a></input>&emsp;  
+	<li ><a id="link7" href="javascript:dispDocLink(7)"></a></input>&emsp;
 	<button class="relBookMark" value=7 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p7"> </p></li>
-	<li ><a id="link8" href="javascript:dispDocLink(8)"></a></input>&emsp;  
+	<li ><a id="link8" href="javascript:dispDocLink(8)"></a></input>&emsp;
 	<button class="relBookMark" value=8 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p8"> </p></li>
-	<li ><a id="link9" href="javascript:dispDocLink(9)"></a></input>&emsp;  
+	<li ><a id="link9" href="javascript:dispDocLink(9)"></a></input>&emsp;
 	<button class="relBookMark" value=9 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p9"> </p></li>
-	<li ><a id="link10" href="javascript:dispDocLink(10)"></a></input>&emsp;  
+	<li ><a id="link10" href="javascript:dispDocLink(10)"></a></input>&emsp;
 	<button class="relBookMark" value=10 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p10"> </p></li>
-	<li ><a id="link11" href="javascript:dispDocLink(11)"></a></input>&emsp;  
+	<li ><a id="link11" href="javascript:dispDocLink(11)"></a></input>&emsp;
 	<button class="relBookMark" value=11 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p11"> </p></li>
-	<li ><a id="link12" href="javascript:dispDocLink(12)"></a></input>&emsp;  
+	<li ><a id="link12" href="javascript:dispDocLink(12)"></a></input>&emsp;
 	<button class="relBookMark" value=12 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p12"> </p></li>
-	<li ><a id="link13" href="javascript:dispDocLink(13)"></a></input>&emsp;  
+	<li ><a id="link13" href="javascript:dispDocLink(13)"></a></input>&emsp;
 	<button class="relBookMark" value=13 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p13"> </p></li>
-	<li ><a id="link14" href="javascript:dispDocLink(14)"></a></input>&emsp;  
+	<li ><a id="link14" href="javascript:dispDocLink(14)"></a></input>&emsp;
 	<button class="relBookMark" value=14 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p14"> </p></li>
-	<li ><a id="link15" href="javascript:dispDocLink(15)"></a></input>&emsp;  
+	<li ><a id="link15" href="javascript:dispDocLink(15)"></a></input>&emsp;
 	<button class="relBookMark" value=15 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p15"> </p></li>
-	<li ><a id="link16" href="javascript:dispDocLink(16)"></a></input>&emsp;  
+	<li ><a id="link16" href="javascript:dispDocLink(16)"></a></input>&emsp;
 	<button class="relBookMark" value=16 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p16"> </p></li>
-	<li ><a id="link17" href="javascript:dispDocLink(17)"></a></input>&emsp;  
+	<li ><a id="link17" href="javascript:dispDocLink(17)"></a></input>&emsp;
 	<button class="relBookMark" value=17 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p17"> </p></li>
-	<li ><a id="link18" href="javascript:dispDocLink(18)"></a></input>&emsp;  
+	<li ><a id="link18" href="javascript:dispDocLink(18)"></a></input>&emsp;
 	<button class="relBookMark" value=18 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p18"> </p></li>
-	<li ><a id="link19" href="javascript:dispDocLink(19)"></a></input>&emsp;  
+	<li ><a id="link19" href="javascript:dispDocLink(19)"></a></input>&emsp;
 	<button class="relBookMark" value=19 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p19"> </p></li>
-	<li ><a id="link20" href="javascript:dispDocLink(20)"></a></input>&emsp;  
+	<li ><a id="link20" href="javascript:dispDocLink(20)"></a></input>&emsp;
 	<button class="relBookMark" value=20 onclick="checkRelevancy(this.value)" style="background:white", "border:none">
 		<img src="smiley.png" alt="HTML tutorial" style="width:15px;height:15px;border:0">
 	</button>
 	<br> <p id="p20"> </p></li>
 	</ul>
-	
+
 	<p id="Thanks"> </p>
 
-  
+
 </article>
 
 </body>
