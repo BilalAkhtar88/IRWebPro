@@ -33,6 +33,7 @@ var seedNumber;
 var outTopicNum = ["0" , "0" , "0" , "0" , "0" , "0"];
 var outMapNum = ["0" , "0" , "0", "0" , "0" , "0"];
 var outTime = ["0" , "0" , "0" , "0" , "0" , "0"];
+var outRelCheck = ["0", "0", "0", "0", "0", "0"]; 
 
 function vanish()
 {
@@ -90,7 +91,6 @@ function showMAP()
 		d3.json 
 		(objec, function(data)
 		{
-			//alert(mapNumber);
 			if (topicNumber == "314")
 				stInd = 0;
 			else if (topicNumber == "336")
@@ -191,7 +191,7 @@ function checkRelevancy(val)
 				{
 					end();
 					relChecked = 1;
-					alert(mapNumber + "   Time " + diffTime);
+					//alert(mapNumber + "   Time " + diffTime);
 				}
 	}
 )	
@@ -212,7 +212,6 @@ function showTopic()
 				{
 				seedNumGen();
 				}
-				//end();
 				start();
 			}
 			
@@ -221,7 +220,10 @@ function showTopic()
 				if(relChecked == 0)
 					end();
 				else
+				{
+					outRelCheck[loopNumber - 1] = relChecked;
 					relChecked = 0;
+				}
 				outTime[loopNumber - 1] = diffTime;
 				start();
 			}
@@ -234,6 +236,7 @@ function showTopic()
 				topNarr = data[seedNumber].topicNarr;
 				document.getElementById("Desc").innerHTML = topDesc;
 				document.getElementById("Narr").innerHTML = topNarr;
+				document.forms["Form2"]["searchText"].value = "";
 				startSessionTimer();
 
 				if (seedNumber < 5)
@@ -245,9 +248,12 @@ function showTopic()
 
 			else
 			{
+				outRelCheck[loopNumber - 1] = relChecked;
 				outTime[loopNumber - 1] = diffTime;
 				alert(outTime);
+				alert(outRelCheck);
 				alert(outMapNum);
+				alert(outTopicNum);
 				document.getElementById("endThank").innerHTML = "Thanks for helping us in this survey!";
 			}
 			
@@ -257,9 +263,8 @@ function showTopic()
 }
 
 function startSessionTimer() {
-    sessionTime = 0.25 * 60;
-	//alert(loopNumber);
-    countDownSession();
+    sessionTime = 10;//(1/6) * 60;
+	countDownSession();
 }
 
 function countDownSession() {
